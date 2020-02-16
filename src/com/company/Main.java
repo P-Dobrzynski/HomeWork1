@@ -9,23 +9,24 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.print("n pierwszych liczb fibonacciego to: ");
-        fibonacci(12);
+//        System.out.print("n pierwszych liczb fibonacciego to: ");
+//        fibonacci(12);
 //        System.out.print("number to array: ");
 //        numbersToArray(1024);
 //        System.out.print("odwrócona liczba całkowita: ");
 //        System.out.println(reverseNumber(123456) +"\n");
-//        int[] aOne= {1,0,2,4};
-//        int[] aTwo= {2,5};
+        int[] aOne= {1,0,2,4};
+        int[] aTwo= {2,5};
 //        System.out.print("dodane dwie liczby w postaci tablicowej: ");
 //        System.out.println(addingTwoArrays(aOne, aTwo));
+//        addingTwoArrays2(aOne, aTwo);
 //        symbolToAscii();
 //        asciiToSymbol();
 //        System.out.println(CaesarCipher.caesarCipher("Ala ma kota",3));
 //        System.out.println(CaesarCipher.ceaserDecipher("Dod pd nrwd",3));
 //        Drawing.drawSquare();
 //        Drawing.drawTriangle();
-        Drawing.drawBiggerSquare();
+//        Drawing.drawBiggerSquare();
 //        ifPitragoras(5, 3, 4);
 //        ifPalindrome("ada");
 //        ifAnagram("listen", "silent");
@@ -104,6 +105,31 @@ public class Main {
         }
         return addedArray;
     }
+
+    // próba druga - nie działa !!!
+    public static void addingTwoArrays2 (int[] aOne, int[] aTwo){
+        int[] result = new int[aOne.length];
+        int lengthDiff = aOne.length - aTwo.length;
+        int temp;
+        int addedtemp = 0;
+        for(int i = aTwo.length -1; i >= 0 ; i--) {
+            result[i+lengthDiff] = aOne[i+lengthDiff] + aTwo[i] + addedtemp;
+
+            if ( result[i+lengthDiff] > 10 ) {
+                temp = result[i+lengthDiff] % 10;
+                result[i+lengthDiff] = temp;
+                addedtemp = 1;
+            }else if (result[i+lengthDiff] == 10 ){
+                addedtemp = 1;
+                result[i+lengthDiff] = 0;
+            }
+        }
+        result[0] = aOne[0];
+        result[1] = aOne[1];
+        System.out.println(result.toString());
+    }
+
+
 // Napisz program wyświetlający kod ASCII wprowadzonego znaku.
     public static void symbolToAscii () {
         System.out.println("\nwrite one symbol, to convert to ascii code(only first symbol will be converted): ");;
